@@ -1,0 +1,12 @@
+<% if product = Product.find_by(id: product_id) %>
+
+    
+      <tr>
+    <td>   <%= image_tag product.image.tiny %>
+     <%= product.name %> : <h6> <%= product.description %> </h6></td>
+      <td>  <%= humanized_money_with_symbol line_total %></td>
+      <td>  <%=  line_quantity %></td>
+        </tr>
+        
+      
+<% end %>
