@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root to: 'products#index'
-
+  
+  get '/about', to: 'about#show'
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:create, :show]
-
+ 
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
