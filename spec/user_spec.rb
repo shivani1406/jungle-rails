@@ -41,15 +41,39 @@ RSpec.describe User, type: :model do
       expect(user).to (be_invalid)
     end
 
-    # it 'should not save a user if already in database' do
-    #   user = User.new(
-    #     name: "test",
+    it 'should not save a user if already in database' do
+      @user1 = User.new(
+        name: "test",
+        email: "shivani1406sharma@gmail.com",
+        password_digest: "test1"
+        )
+        @user2 = User.new(
+        name: "test",
+        email: "shivani1406sharma@gmail.com",
+        password_digest: "test1"
+        )
+        expect(@user2).to_not be_valid
+    end
+    # it 'should have name to be a valid user' do
+    #   user = User.create(
+    #     name: nil,
     #     email: "shivani1406sharma@gmail.com",
     #     password: "test1",
-    #     password_confirmation: "test1"
-    #     )
-    #   expect(user).to (be_valid)
+    #     password_confirmation: "test1")
+    #   expect(user).to_not (be_valid)
     # end
 
+    
   end
+
+  # describe '.authenticate_with_credentials' do
+  #   user = User.create(
+  #     name: "test",
+  #       email: "shivani1406sharma@gmail.com",
+  #       password: "test1",
+  #       password_confirmation: "test1"
+  #     )
+  #   authenticate = User.authenticate_with_credentials(user.email, user.password)
+  #   expect(authenticate).to_not be_valid
+  # end
 end
